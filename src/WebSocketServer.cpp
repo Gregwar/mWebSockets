@@ -123,8 +123,9 @@ WebSocket *WebSocketServer::_getWebSocket(NetClient &client) const {
 bool WebSocketServer::_handleRequest(
   NetClient &client, char selectedProtocol[]) {
 #if NETWORK_CONTROLLER == NETWORK_CONTROLLER_WIFI
-  while (!client.available()) {
-    delay(10);
+  int start = millis();
+  while (!client.available() && client.connected() && (millis() - start) < 250) {
+    vTaskDelay(5);
     __debugOutput(F("."));
   }
 #endif

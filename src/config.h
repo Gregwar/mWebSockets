@@ -22,7 +22,7 @@
 //#define _DUMP_HEADER
 //#define _DUMP_FRAME_DATA
 
-#define NETWORK_CONTROLLER ETHERNET_CONTROLLER_W5X00
+// #define NETWORK_CONTROLLER ETHERNET_CONTROLLER_W5X00
 
 /** Maximum size of data buffer - frame payload (in bytes). */
 constexpr uint16_t kBufferMaxSize{256};
